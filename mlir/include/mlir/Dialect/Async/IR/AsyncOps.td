@@ -30,7 +30,8 @@ class Async_Op<string mnemonic, list<Trait> traits = []> :
 def Async_ExecuteOp :
   Async_Op<"execute", [SingleBlockImplicitTerminator<"YieldOp">,
                        DeclareOpInterfaceMethods<RegionBranchOpInterface,
-                                                 ["getSuccessorEntryOperands"]>,
+                                                 ["getSuccessorEntryOperands",
+                                                  "getNumRegionInvocations"]>,
                        AttrSizedOperandSegments]> {
   let summary = "Asynchronous execute operation";
   let description = [{

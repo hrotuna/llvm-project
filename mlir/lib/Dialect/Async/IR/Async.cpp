@@ -65,6 +65,12 @@ OperandRange ExecuteOp::getSuccessorEntryOperands(unsigned index) {
   return operands();
 }
 
+void ExecuteOp::getNumRegionInvocations(
+    ArrayRef<Attribute>, SmallVectorImpl<int64_t> &countPerRegion) {
+  assert(countPerRegion.empty());
+  countPerRegion.push_back(1);
+}
+
 void ExecuteOp::getSuccessorRegions(Optional<unsigned> index,
                                     ArrayRef<Attribute>,
                                     SmallVectorImpl<RegionSuccessor> &regions) {
